@@ -1,25 +1,44 @@
-import logo from './logo.svg';
+import React ,{Component} from 'react';
+import SearchBox from './SearchBox';
 import './App.css';
-
-function App() {
-  return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
-}
+import Scroll from './Scroll';
+class App extends Component {
+  constructor(){
+    super()
+    this.state ={
+      Searchfield : '',
+      Select : 'Vaccine'
+    }
+  }
+ 
+    change=(event)=>{
+    this.setState({Searchfield:event.target.value});
+    }
+    selectchange=(event)=>{
+      this.setState({Select:event.target.value});
+      }
+    clear=(event)=>{
+      this.setState({Searchfield:""});
+      }
+      search=(event) =>{
+        console.log(this.state.Searchfield)
+      }
+  render(){
+        
+         return (
+         <div className = 'tc' >
+         <h1 className = 'f1'>Search Vaccine </h1>
+         <br></br>
+         <SearchBox SearchChange={this.change} Select={this.selectchange} ClickSearch={this.search} ClearSearch={this.clear} SelectValue={this.state.Select} SearchValue = {this.state.Searchfield}/>
+         <br></br>
+         <br></br>
+         <Scroll>
+         
+           </Scroll>
+         
+         </div>
+           );
+         }
+                             }
 
 export default App;
