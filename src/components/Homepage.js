@@ -25,8 +25,7 @@ class HomePage extends Component {
   render(){
         
          return (
-         <div className = 'tc' >
-         <h1 className = 'f1'>Search Availability</h1>
+         <div className = '' >
          <br></br>
          <SearchBox SearchChange={this.change} Select={this.selectchange} ClickSearch={this.search} ClearSearch={this.clear} SelectValue={this.state.Select} SearchValue = {this.state.Searchfield}/>
          <br></br>
