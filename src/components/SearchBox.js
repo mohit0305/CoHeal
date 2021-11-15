@@ -11,6 +11,7 @@ class SearchBox extends React.Component {
 	onPinChange = (event) =>{this.setState({pin: event.target.value})}
 	onOptChange = (event) =>{this.setState({opt: event.target.value})}
 
+
 	onSubmitSearch = ()=>{
 		fetch('', {
 			method: 'post',
@@ -53,18 +54,23 @@ class SearchBox extends React.Component {
 										<option selected disabled value="">--</option>
 										<option value="Vacc">Vaccination Slots</option>
 										<option value="ICU">ICU Beds</option>
+
 								</select>
 							</div>
 						</fieldset>
 						<div className="">
 							<input 
+
 								onClick={this.onSubmitSearch}
 								className="b br-pill ph3 pv2 input-reset ba b--black bg-transparent grow pointer f6 dib" type="submit" value="Search"/>
+
 						</div>
 					</div>
 				</main>
 			</article>
+
 		);
 	}
 }
 export default SearchBox;
+

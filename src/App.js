@@ -1,9 +1,9 @@
 import React from 'react';
-import HomePage from './components/Homepage';
-import Login from './components/Login';
-import HLogin from './components/HLogin';
-import ALogin from './components/ALogin';
-import Register from './components/Register'
+import HomePage from './Components/Homepage';
+import Login from './Components/Login';
+import HLogin from './Components/HLogin';
+import ALogin from './Components/ALogin';
+import Register from './Components/Register'
 import {BrowserRouter as Router,Routes,Route,Link} from "react-router-dom";
 import logo from './logo192.png';
 import './App.css';
