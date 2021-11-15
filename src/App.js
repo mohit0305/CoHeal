@@ -25,36 +25,37 @@ class App extends React.Component {
         <Router>
           <div>
             <nav className='dt w-100 border-box pa2 ph5-ns'>
-              <Link to="/" onClick={() => this.onRouteChange('/')}><img className='dtc v-mid link dim pa2 pointer w-25' style={{ height: 50, width: 50 }} alt='logo 'src={logo}/> </Link>
+              <Link to="/" onClick={() => this.onRouteChange('/')}><img className='dtc v-mid link pa2 pointer grow w-50' style={{ height: 50, width: 50 }} alt='logo 'src={logo}/> </Link>
               <div className='dtc v-mid w-75 tr'>
                 {
-                  this.state.currentRoute !== '/'? <Link to="/" onClick={() => this.onRouteChange('/')}> <p className='link dim black underline f4-ns dib mr3 mr4-ns pointer'>Home</p></Link>
+                  this.state.currentRoute !== '/'? <Link to="/" onClick={() => this.onRouteChange('/')}> <p className='link grow dim black underline f4-ns dib f7 mr1 mr3-ns pointer'>Home</p></Link>
                   : <span/>
                 }{
-                  this.state.currentRoute !== '/Login'? <Link to="/Login" onClick={() => this.onRouteChange('/Login')}> <p className='link dim black underline f4-ns dib mr3 mr4-ns pointer'>Login</p></Link>
+                  this.state.currentRoute !== '/Login'? <Link to="/Login" onClick={() => this.onRouteChange('/Login')}> <p className='link grow dim black underline f4-ns dib f7 mr1 mr3-ns pointer'>Login</p></Link>
                   : <span/>
                 }{
-                  this.state.currentRoute !== '/Register'? <Link to="/Register" onClick={() => this.onRouteChange('/Register')}> <p className='link dim black underline f4-ns dib mr3 mr4-ns pointer'>Register</p></Link>
+                  this.state.currentRoute !== '/Register'? <Link to="/Register" onClick={() => this.onRouteChange('/Register')}> <p className='link grow dim black underline f4-ns dib f7 mr1 mr3-ns pointer'>Register</p></Link>
                   : <span/>
                 }{
-                  this.state.currentRoute !== '/HLogin'? <Link to="/HLogin" onClick={() => this.onRouteChange('/HLogin')}> <p className='link dim black underline f4-ns dib mr3 mr4-ns pointer'>Hospital Login</p></Link>
+                  this.state.currentRoute !== '/HLogin'? <Link to="/HLogin" onClick={() => this.onRouteChange('/HLogin')}> <p className='link grow dim black underline f4-ns dib f7 mr1 mr3-ns pointer'>Hospital Login</p></Link>
                   : <span/>
                 }{
-                  this.state.currentRoute !== '/ALogin'? <Link to="/ALogin" onClick={() => this.onRouteChange('/ALogin')}> <p className='link dim black underline f4-ns dib pointer'>Admin Login</p></Link>
+                  this.state.currentRoute !== '/ALogin'? <Link to="/ALogin" onClick={() => this.onRouteChange('/ALogin')}> <p className='link grow dim black underline f7 f4-ns dib pointer'>Admin Login</p></Link>
                   : <span/>
                 }
               </div>
               
             </nav>
-  
-            <Routes>
-              <Route exact path="/" element = {<HomePage/>}></Route>
-              <Route exact path="/Login" element = {<Login/>}></Route>
-              <Route path="/Register" element = {<Register />}></Route>
-              <Route path="/HLogin" element = {<HLogin/>}></Route>
-              <Route path="/ALogin" element = {<ALogin/>}></Route>
-            </Routes>
-          
+            <div>
+              <Routes>
+                <Route exact path="/" element = {<HomePage/>}></Route>
+                <Route exact path="/Login" element = {<Login/>}></Route>
+                <Route path="/Register" element = {<Register />}></Route>
+                <Route path="/HLogin" element = {<HLogin/>}></Route>
+                <Route path="/ALogin" element = {<ALogin/>}></Route>
+              </Routes>
+            </div>
+
           </div>
         </Router>
       </div>

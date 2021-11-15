@@ -1,4 +1,5 @@
 import React ,{Component} from 'react';
+import Banner from './Banner';
 import SearchBox from './SearchBox';
 
 class HomePage extends Component {
@@ -23,18 +24,13 @@ class HomePage extends Component {
         console.log(this.state.Searchfield)
       }
   render(){
-        
-         return (
-         <div className = 'tc' >
-         <h1 className = 'f1'>Search Availability</h1>
-         <br></br>
-         <SearchBox SearchChange={this.change} Select={this.selectchange} ClickSearch={this.search} ClearSearch={this.clear} SelectValue={this.state.Select} SearchValue = {this.state.Searchfield}/>
-         <br></br>
-         <br></br>
-         
-         </div>
-           );
-         }
-                             }
+    return (
+          <div>
+            <Banner/>
+            <SearchBox SearchChange={this.change} Select={this.selectchange} ClickSearch={this.search} ClearSearch={this.clear} SelectValue={this.state.Select} SearchValue = {this.state.Searchfield}/>
+          </div>
+    );
+  }
+}
 
 export default HomePage;

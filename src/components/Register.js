@@ -48,13 +48,13 @@ class Register extends React.Component {
 	}
 	render(){
 		return(
-			<article className="br3 ba b--black-10 mv4 w-100 w-75-m w-75-l mw6 shadow-5 center">
+			<article className="br3 ba b--black-10 mv4 w-100 w-75-m w-75-l mw8 shadow-5 center">
 				<main className="pa4 black-80">
-					<div className="measure">
+					<div className="">
 						<fieldset id="sign_up" className="ba b--transparent ph0 mh0">
 							<legend className="f2 fw6 ph0 mh0">Register</legend>
 							<div className="flex items-center mt3">
-								<label className="tr w-20 db fw6 lh-copy f6" htmlFor="name">Name*</label>
+								<label className="tr w-20 db fw6 lh-copy f6" htmlFor="name">Name* :</label>
 								<input 
 									className="pa2 input-reset ba bg-transparent hover-bg-black hover-white w-80 ml3" 
 									type="text" 
@@ -63,18 +63,18 @@ class Register extends React.Component {
 									onChange={this.onNameChange}
 								/>
 							</div><div className="flex items-center mt3">
-								<label className="tr w-20 db fw6 lh-copy f6" htmlFor="uid">UID*</label>
+								<label className="tr w-20 db fw6 lh-copy f6" htmlFor="uid">UID* :</label>
 								<input 
 									className="pa2 input-reset ba bg-transparent hover-bg-black hover-white w-80 ml3" 
 									type="number" 
 									name="uid"  
 									id="uid"
-									placeholder="0000-0000-0000"
+									placeholder="XXXX-XXXX-XXXX"
 									onChange={this.onUIDChange}
 								/>
 							</div>
 							<div className="flex items-center mt3">
-								<label className="tr w-20 db fw6 lh-copy f6" htmlFor="age">Age*</label>
+								<label className="tr w-20 db fw6 lh-copy f6" htmlFor="age">Age* :</label>
 								<input 
 									className="pa2 input-rese ba bg-transparent hover-bg-black hover-white w-80 ml3" 
 									type="number"
@@ -84,7 +84,7 @@ class Register extends React.Component {
 								/>
 							</div>
 							<div className="flex items-center mt3">
-							<label className="tr w-20 db fw6 lh-copy f6" htmlFor="gender">Gender*</label>
+							<label className="tr w-20 db fw6 lh-copy f6" htmlFor="gender">Gender* :</label>
 								<select 
 									className="pa2 f6 input-rese ba bg-transparent hover-bg-black hover-white w-80 ml3"
 									id="gender"
@@ -97,25 +97,27 @@ class Register extends React.Component {
 								</select>
 							</div>
 							<div className="flex items-center mt3">
-								<label className="tr w-20 db fw6 lh-copy f6" htmlFor="number">Phone Number*</label>
+								<label className="tr w-20 db fw6 lh-copy f6" htmlFor="number">Phone Number* :</label>
 								<input 
 									className="pa2 input-reset ba bg-transparent hover-bg-black hover-white w-80 ml3" 
 									type="number" 
+									step="0"
 									name="number"  
 									id="number"
 									onChange={this.onNumberChange}
 								/>
 							</div>
 							<div className="flex items-center mt3">
-								<label className="tr w-20 db fw6 lh-copy f6" htmlFor="address">Address</label>
+								<label className="tr w-20 db fw6 lh-copy f6" htmlFor="address">Address :</label>
 								<textarea
+									style={{resize:'none'}}
 									className="pa2 input-rese ba bg-transparent hover-bg-black hover-white w-80 ml3"
 									id="address"
 									name="address"
 									onChange={this.onAddressChange}></textarea>
 							</div>
 							<div className="flex items-center mt3">
-								<label className="tr w-20 db fw6 lh-copy f6" htmlFor="email-address">Email</label>
+								<label className="tr w-20 db fw6 lh-copy f6" htmlFor="email-address">Email :</label>
 								<input 
 									className="pa2 input-reset ba bg-transparent hover-bg-black hover-white w-80 ml3" 
 									type="email" 
@@ -125,7 +127,7 @@ class Register extends React.Component {
 								/>
 							</div>
 							<div className="flex items-center mv3">
-								<label className="tr w-20 db fw6 lh-copy f6" htmlFor="password">Password*</label>
+								<label className="tr w-20 db fw6 lh-copy f6" htmlFor="password">Password* :</label>
 								<input 
 									className="b pa2 input-reset ba bg-transparent hover-bg-black hover-white w-80 ml3" 
 									type="password" 
