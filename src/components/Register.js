@@ -1,5 +1,5 @@
 import React from 'react';
-
+import {Link} from 'react-router-dom';
 class Register extends React.Component {
 	constructor(props){
 		super(props);
@@ -48,7 +48,7 @@ class Register extends React.Component {
 	}
 	render(){
 		return(
-			<article className="br3 ba b--black-10 mv4 w-100 w-75-m w-75-l mw8 shadow-5 center">
+			<article className="br3 ba b--black-10 mv4 w-100 w-75-m w-75-l mw8 shadow-5 center" >
 				<main className="pa4 black-80">
 					<div className="">
 						<fieldset id="sign_up" className="ba b--transparent ph0 mh0">
@@ -138,9 +138,10 @@ class Register extends React.Component {
 							</div>
 						</fieldset>
 						<div className="">
-							<input 
+						<Link to="/Login"><input 
 								onClick={this.onSubmitRegister}
 								className="b ph3 pv2 input-reset ba b--black bg-transparent grow pointer f6 dib" type="submit" value="Register"/>
+								</Link>
 						</div>
 					</div>
 				</main>
