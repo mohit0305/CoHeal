@@ -36,61 +36,38 @@ class Login extends React.Component {
 	}
 	render(){
 		return(
-			<article className="br3 ba b--black-10 mv4 w-100 w-75-m w-75-l mw6 shadow-5 center" >
-				<main className="pa4 black-80">
-					<div className="measure">
-						<fieldset id="sign_up" className="ba b--transparent ph0 mh0">
-							<legend className="f2 fw6 ph0 mh0">Login</legend>
-							<div className="flex items-center mt3">
-								<label className="tr w-20 db fw6 lh-copy f6" htmlFor="name">Name*</label>
-								<input 
-									className="pa2 input-reset ba bg-transparent hover-bg-black hover-white w-80 ml3" 
-									type="text" 
-									name="name"  
-									id="name"
-									onChange={this.onNameChange}
-								/>
-							</div>
-                            <div className="flex items-center mt3">
-								<label className="tr w-20 db fw6 lh-copy f6" htmlFor="uid">UID*</label>
-								<input 
-									className="pa2 input-reset ba bg-transparent hover-bg-black hover-white w-80 ml3" 
-									type="number" 
-									name="uid"  
-									id="uid"
-									placeholder="0000-0000-0000"
-									onChange={this.onUIDChange}
-								/>
-							</div>
-							<div className="flex items-center mt3">
-								<label className="tr w-20 db fw6 lh-copy f6" htmlFor="number">Phone Number*</label>
-								<input 
-									className="pa2 input-reset ba bg-transparent hover-bg-black hover-white w-80 ml3" 
-									type="number" 
-									name="number"  
-									id="number"
-									onChange={this.onNumberChange}
-								/>
-							</div>
-							<div className="flex items-center mv3">
-								<label className="tr w-20 db fw6 lh-copy f6" htmlFor="password">Password*</label>
-								<input 
-									className="b pa2 input-reset ba bg-transparent hover-bg-black hover-white w-80 ml3" 
-									type="password" 
-									name="password" 
-									id="password"
-									onChange={this.onPasswordChange}
-								/>
-							</div>
-						</fieldset>
-						<div className="">
-							<input 
-								onClick={this.onSubmitRegister}
-								className="b ph3 pv2 input-reset ba b--black bg-transparent grow pointer f6 dib" type="submit" value="Login"/>
+			<div className="container">
+				<b className="page_title">Login </b>
+			        <div className="form">
+						<div className="form_input">
+							<label>
+								<span className="label"> Name<b style={{color: "red"}}>*</b></span>
+							    <input type="text" name="name" id="name" onChange={this.onNameChange}/>
+							</label>
+						</div>
+                        <div className="form_input">
+							<label>
+								<span className="label">User ID<b style={{color: "red"}}>*</b></span> 
+							    <input type="number" name="uid" id="uid" placeholder="0000-0000-0000" onChange={this.onUIDChange}/>
+							</label>
+						</div>
+						<div className="form_input">
+							<label>
+								<span className="label"> Phone Number<b style={{color: "red"}}>*</b></span>
+							    <input type="number"name="number" id="number" onChange={this.onNumberChange}/>
+							</label>
+						</div>
+						<div className="form_input">
+							<label>
+								<span className="label"> Password<b style={{color: "red"}}>*</b></span>
+							    <input type="password" name="password" id="password" onChange={this.onPasswordChange}/>
+							</label>
 						</div>
 					</div>
-				</main>
-			</article>
+					<div className="submit_btn_div">
+						<button onClick={this.onSubmitRegister} type="submit">Login</button>
+					</div>
+			</div>
 		);
 	}
 }
