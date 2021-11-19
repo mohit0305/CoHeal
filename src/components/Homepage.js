@@ -2,6 +2,7 @@ import React ,{Component} from 'react';
 import Banner from './Banner';
 import SearchBox from './SearchBox';
 
+
 class HomePage extends Component {
   constructor(){
     super()
@@ -26,7 +27,7 @@ class HomePage extends Component {
   render(){
     return (
           <div>
-            <Banner/>
+            {/* <Banner/> */}
             <SearchBox SearchChange={this.change} Select={this.selectchange} ClickSearch={this.search} ClearSearch={this.clear} SelectValue={this.state.Select} SearchValue = {this.state.Searchfield}/>
           </div>
     );
