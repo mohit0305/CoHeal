@@ -1,5 +1,5 @@
 import React from 'react';
-import {Link} from 'react-router-dom';
+
 class Register extends React.Component {
 	constructor(props){
 		super(props);
@@ -48,104 +48,69 @@ class Register extends React.Component {
 	}
 	render(){
 		return(
-			<article className="br3 ba b--black-10 mv4 w-100 w-75-m w-75-l mw8 shadow-5 center" >
-				<main className="pa4 black-80">
-					<div className="">
-						<fieldset id="sign_up" className="ba b--transparent ph0 mh0">
-							<legend className="f2 fw6 ph0 mh0">Register</legend>
-							<div className="flex items-center mt3">
-								<label className="tr w-20 db fw6 lh-copy f6" htmlFor="name">Name* :</label>
-								<input 
-									className="pa2 input-reset ba bg-transparent hover-bg-black hover-white w-80 ml3" 
-									type="text" 
-									name="name"  
-									id="name"
-									onChange={this.onNameChange}
-								/>
-							</div><div className="flex items-center mt3">
-								<label className="tr w-20 db fw6 lh-copy f6" htmlFor="uid">UID* :</label>
-								<input 
-									className="pa2 input-reset ba bg-transparent hover-bg-black hover-white w-80 ml3" 
-									type="number" 
-									name="uid"  
-									id="uid"
-									placeholder="XXXX-XXXX-XXXX"
-									onChange={this.onUIDChange}
-								/>
-							</div>
-							<div className="flex items-center mt3">
-								<label className="tr w-20 db fw6 lh-copy f6" htmlFor="age">Age* :</label>
-								<input 
-									className="pa2 input-rese ba bg-transparent hover-bg-black hover-white w-80 ml3" 
-									type="number"
-									name="age"  
-									id="age"
-									onChange={this.onAgeChange}
-								/>
-							</div>
-							<div className="flex items-center mt3">
-							<label className="tr w-20 db fw6 lh-copy f6" htmlFor="gender">Gender* :</label>
-								<select 
-									className="pa2 f6 input-rese ba bg-transparent hover-bg-black hover-white w-80 ml3"
-									id="gender"
-									name="gender"
-									onChange={this.onGenderChange}>
-										<option disabled selected value="">Select Option</option>
-										<option value="Male">Male</option>
-										<option value="Female">Female</option>
-										<option value="Other">Other</option>
-								</select>
-							</div>
-							<div className="flex items-center mt3">
-								<label className="tr w-20 db fw6 lh-copy f6" htmlFor="number">Phone Number* :</label>
-								<input 
-									className="pa2 input-reset ba bg-transparent hover-bg-black hover-white w-80 ml3" 
-									type="number" 
-									step="0"
-									name="number"  
-									id="number"
-									onChange={this.onNumberChange}
-								/>
-							</div>
-							<div className="flex items-center mt3">
-								<label className="tr w-20 db fw6 lh-copy f6" htmlFor="address">Address :</label>
-								<textarea
-									style={{resize:'none'}}
-									className="pa2 input-rese ba bg-transparent hover-bg-black hover-white w-80 ml3"
-									id="address"
-									name="address"
-									onChange={this.onAddressChange}></textarea>
-							</div>
-							<div className="flex items-center mt3">
-								<label className="tr w-20 db fw6 lh-copy f6" htmlFor="email-address">Email :</label>
-								<input 
-									className="pa2 input-reset ba bg-transparent hover-bg-black hover-white w-80 ml3" 
-									type="email" 
-									name="email-address"  
-									id="email-address"
-									onChange={this.onEmailChange}
-								/>
-							</div>
-							<div className="flex items-center mv3">
-								<label className="tr w-20 db fw6 lh-copy f6" htmlFor="password">Password* :</label>
-								<input 
-									className="b pa2 input-reset ba bg-transparent hover-bg-black hover-white w-80 ml3" 
-									type="password" 
-									name="password" 
-									id="password"
-									onChange={this.onPasswordChange}
-								/>
-							</div>
-						</fieldset>
-						<div className="">
-						<Link to="/Login"><input 
-								onClick={this.onSubmitRegister}
-								className="b ph3 pv2 input-reset ba b--black bg-transparent grow pointer f6 dib" type="submit" value="Register"/>
-								</Link>
-						</div>
-					</div>
-				</main>
-			</article>
+		    
+	<div className="container">
+		<b className="page_title">Register</b>
+			<div className="form">
+				<div className="form_input">
+					<label>
+						<span className="label"> Name<b style={{color: "red"}}>*</b> </span>
+						<input type="text" name="name" id="name" onChange={this.onNameChange} />
+					</label>
+				</div>
+				<div className="form_input">
+					<label>
+				        <span className="label">UID<b style={{color: "red"}}>*</b> </span>
+						<input type="number" name="uid" id="uid" placeholder="XXXX-XXXX-XXXX" onChange={this.onUIDChange} />
+					</label>
+				</div>
+				<div className="form_input">
+					<label>
+						<span  className="label"> Age<b style={{color: "red"}}>*</b> </span>
+						<input type="number" name="age" id="age" onChange={this.onAgeChange} />
+					</label>
+				</div>
+				<div className="form_input">
+					<label>
+						<span className="label"> Gender<b style={{color: "red"}}>*</b> </span>
+						<select id="gender" name="gender" onChange={this.onGenderChange}>
+							<option disabled selected value="">Select Option</option>
+							<option value="Male">Male</option>
+							<option value="Female">Female</option>
+							<option value="Other">Other</option>
+						</select>
+					</label>
+				</div>
+				<div className="form_input">
+					<label>
+						<span className="label"> Phone Number<b style={{color: "red"}}>*</b> </span>
+						<input type="number" step="0" name="number" id="number" onChange={this.onNumberChange} />
+					</label>
+				</div>
+				<div className="form_input">
+					<label>
+						<span className="label"> Address </span>
+						<textarea style={{ resize: 'none' }} id="address" name="address" onChange={this.onAddressChange}></textarea>
+					</label>
+				</div>
+				<div className="form_input">
+					<label>
+						<span className="label"> Email </span>
+						<input type="email" name="email-address" id="email-address" onChange={this.onEmailChange} />
+					</label>
+				</div>
+				<div className="form_input">
+					<label>
+						<span className="label"> Password<b style={{color: "red"}}>*</b></span>
+						<input type="password" name="password" id="password" onChange={this.onPasswordChange} />
+					</label>
+				</div>
+				<center><b style={{color: "red"}}>*</b> <strong style={{color: "purple"}}>represents required field</strong></center>
+			</div>
+			    <div className="submit_btn_div">
+					<button onClick={this.onSubmitRegister} type="submit">Register</button>
+				</div>
+	</div>				
 		);
 	}
 }
