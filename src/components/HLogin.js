@@ -1,4 +1,6 @@
 import React from 'react';
+import Hospital from './Hospital';
+import {Link} from 'react-router-dom';
 class HLogin extends React.Component {
 	constructor(props){
 		super(props);
@@ -58,11 +60,11 @@ class HLogin extends React.Component {
 							
 						</fieldset>
 						<div className="">
-						     	<input 
+						<Link to="/Hospital"><input 
 
 								onClick={this.onSubmitSearch}
 								className="b br-pill ph3 pv2 input-reset ba b--black bg-transparent grow pointer f6 dib" type="submit" value="Search"/>
-                         
+                         </Link>
 						</div>
 					</div>
 				</main>

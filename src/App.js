@@ -4,6 +4,7 @@ import Login from './Components/Login';
 import HLogin from './Components/HLogin';
 import ALogin from './Components/ALogin';
 import Register from './Components/Register'
+import Hospital from './Components/Hospital'
 import {BrowserRouter as Router,Routes,Route,Link} from "react-router-dom";
 import logo from './logo192.png';
 import './App.css';
@@ -53,6 +54,7 @@ class App extends React.Component {
                 <Route path="/Register" element = {<Register />}></Route>
                 <Route path="/HLogin" element = {<HLogin/>}></Route>
                 <Route path="/ALogin" element = {<ALogin/>}></Route>
+                <Route path="/Hospital" element = {<Hospital/>}></Route>
               </Routes>
             </div>
 
