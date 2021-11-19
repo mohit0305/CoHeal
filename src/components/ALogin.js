@@ -1,72 +1,55 @@
 import React from 'react';
+
 class ALogin extends React.Component {
 	constructor(props){
 		super(props);
 		this.state ={
-			adminId: 0,
-            pass: ''
+		    aid: 0,
+			password: '',
 		}
 	}
-	onNameChange = (event) =>{this.setState({adminId: event.target.value})}
-	onPassChange = (event) =>{this.setState({pass: event.target.value})}
+	onAIDChange = (event) =>{this.setState({aid: event.target.value})}
+	onPasswordChange = (event) =>{this.setState({password: event.target.value})}
 
-
-	onSubmitSearch = ()=>{
+	onSubmitRegister = ()=>{
 		fetch('', {
 			method: 'post',
 			headers: {'Content-Type': 'application/json'},
 			body: JSON.stringify({
-				hname: this.state.adminId,
-				pass: this.state.pass,
+				aid: this.state.aid,
+				password: this.state.password,
 			})
 		}).then(response => response.json())
-		.then(list => {
-			
+		.then(user => {
+			if(user){
+				this.props.loadUser(user);
+				this.props.onRouteChange('home');
+			}
 		})
 		console.log(this.state)
 	}
 	render(){
 		return(
-			<article className="br4 ba b--black-10 mv4 w-100 w-75-m w-75-l mw6 shadow-5 center" >
-				<main className="pa4 black-80">
-					<div className="measure">
-						<fieldset id="sign_up" className="ba b--transparent ph0 mh0">
-							<legend className="f2 fw6 ph0 mh0">Admin Login</legend>
-							<div className="flex items-center mt3">
-								<label className="tr w-25 db fw6 lh-copy f6" htmlFor="hname">Admin's Id</label>
-								<input 
-									className="pa2 br-pill input-reset ba bg-transparent hover-bg-black hover-white w-75 ml3" 
-									type="text" 
-									name="adminId"  
-									id="adminId"
-                                    placeholder="Id"
-									onChange={this.onNameChange}
-								/>
-              </div>
-                    <div className="flex items-center mt3">
-								<label className="tr w-25 db fw6 lh-copy f6" htmlFor="pass">Password</label>
-								<input 
-									className="pa2 br-pill input-reset ba bg-transparent hover-bg-black hover-white w-75 ml3" 
-									type="Password" 
-									name="pass"  
-									id="pass"
-                  placeholder="Password"
-									onChange={this.onPassChange}
-								/>
-              </div>
-							
-						</fieldset>
-						<div className="">
-							<input 
-
-								onClick={this.onSubmitSearch}
-								className="b br-pill ph3 pv2 input-reset ba b--black bg-transparent grow pointer f6 dib" type="submit" value="Search"/>
-
+			<div className="container">
+				<b className="page_title">Admin Login </b>
+			        <div className="form">
+                        <div className="form_input">
+							<label>
+								<span className="label">Admin ID<b style={{color: "red"}}>*</b></span> 
+							    <input type="number" name="aid" id="aid" placeholder="0000-0000-0000" onChange={this.onAIDChange}/>
+							</label>
+						</div>
+						<div className="form_input">
+							<label>
+								<span className="label"> Password<b style={{color: "red"}}>*</b></span>
+							    <input type="password" name="password" id="password" onChange={this.onPasswordChange}/>
+							</label>
 						</div>
 					</div>
-				</main>
-			</article>
-
+					<div className="submit_btn_div">
+						<button onClick={this.onSubmitRegister} type="submit">Login</button>
+					</div>
+			</div>
 		);
 	}
 }
