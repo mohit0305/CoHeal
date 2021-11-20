@@ -13,11 +13,58 @@ class App extends React.Component {
   constructor(){
     super();
     this.state={
-      currentRoute: window.location.pathname
+      currentRoute: window.location.pathname,
+      admin: {
+        islogged: false,
+        aid:''
+      },
+      hospital: {
+        islogged: false,
+        hid:'',
+        name:'',
+        address:'',
+        pincode:''
+      },
+      citizen: {
+        islogged: false,
+        uid:'',
+        name:'',
+        age:'',
+        gender:'',
+      }
     }
+    console.log(this.state)
   }
+  
   onRouteChange = (route) =>{
     this.setState({currentRoute: route});
+  }
+
+  loadAdmin= (admin)=>{
+    this.setState({admin:{
+      islogged: true,
+      aid: admin.aid
+    }})
+  }
+
+  loadCitizen= (citizen) =>{
+    this.setState({citizen:{
+      islogged: true,
+      uid: citizen.uid,
+      name: citizen.name,
+      age: citizen.age,
+      gender: citizen.gender
+    }})
+  }
+
+  loadHospital= (hospital) =>{
+    this.setState({citizen:{
+      islogged: true,
+      hid: hospital.hid,
+      name: hospital.name,
+      address: hospital.address,
+      pincode: hospital.pincode
+    }})
   }
 
   render(){
@@ -50,10 +97,10 @@ class App extends React.Component {
             <div>
               <Routes>
                 <Route exact path="/" element = {<HomePage/>}></Route>
-                <Route exact path="/Login" element = {<Login/>}></Route>
-                <Route path="/Register" element = {<Register />}></Route>
-                <Route path="/HLogin" element = {<HLogin/>}></Route>
-                <Route path="/ALogin" element = {<ALogin/>}></Route>
+                <Route exact path="/Login" element = {<Login loadCitizen={this.loadCitizen} onRouteChange={this.onRouteChange}/>}></Route>
+                <Route path="/Register" element = {<Register loadCitizen={this.loadCitizen} onRouteChange={this.onRouteChange}/>}></Route>
+                <Route path="/HLogin" element = {<HLogin loadHospital={this.loadHospital} onRouteChange={this.onRouteChange}/>}></Route>
+                <Route path="/ALogin" element = {<ALogin loadAdmin={this.loadAdmin}/>}></Route>
                 <Route path="/Hospital" element = {<Hospital/>}></Route>
               </Routes>
             </div>

@@ -1,4 +1,5 @@
 import React from 'react';
+
 class Hospital extends React.Component {
 	constructor(props){
 		super(props);

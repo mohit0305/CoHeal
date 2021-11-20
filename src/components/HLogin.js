@@ -1,74 +1,66 @@
 import React from 'react';
-import Hospital from './Hospital';
 import {Link} from 'react-router-dom';
+
 class HLogin extends React.Component {
 	constructor(props){
 		super(props);
 		this.state ={
-			hname: 0,
-            pass: ''
+			hid: 0,
+			password: ''
 		}
 	}
-	onNameChange = (event) =>{this.setState({hname: event.target.value})}
-	onPassChange = (event) =>{this.setState({pass: event.target.value})}
+	onHIDChange = (event) =>{this.setState({hid: event.target.value})}
+	onPasswordChange = (event) =>{this.setState({password: event.target.value})}
 
     
-	onSubmitSearch = ()=>{
+	onSubmitHLogin = (event)=>{
 		fetch('', {
 			method: 'post',
 			headers: {'Content-Type': 'application/json'},
 			body: JSON.stringify({
-				hname: this.state.hname,
-				pass: this.state.pass,
+				hid: this.state.hid,
+				password: this.state.password,
 			})
 		}).then(response => response.json())
-		.then(list => {
-			
+		.then(hospital => {
+			if(!(hospital.uid)){
+				alert(hospital);
+				console.log(hospital);
+				event.preventDefault();
+			}
+			else{
+				this.props.loadHospital(hospital);
+			}
 		})
+
 		console.log(this.state)
 	}
+
 	render(){
 		
 		return(
-			<article className="br4 ba b--black-10 mv4 w-100 w-75-m w-75-l mw6 shadow-5 center" >
-				<main className="pa4 black-80">
-					<div className="measure">
-						<fieldset id="sign_up" className="ba b--transparent ph0 mh0">
-							<legend className="f2 fw6 ph0 mh0">Hospital Login</legend>
-							<div className="flex items-center mt3">
-								<label className="tr w-25 db fw6 lh-copy f6" htmlFor="hname">Hospital's name</label>
-								<input 
-									className="pa2 br-pill input-reset ba bg-transparent hover-bg-black hover-white w-75 ml3" 
-									type="text" 
-									name="hname"  
-									id="hname"
-                  placeholder="Name of Hospital"
-									onChange={this.onNameChange}
-								/>
-              </div>
-                    <div className="flex items-center mt3">
-								<label className="tr w-25 db fw6 lh-copy f6" htmlFor="pass">Password</label>
-								<input 
-									className="pa2 br-pill input-reset ba bg-transparent hover-bg-black hover-white w-75 ml3" 
-									type="Password" 
-									name="pass"  
-									id="pass"
-                  placeholder="Password"
-									onChange={this.onPassChange}
-								/>
-              </div>
-							
-						</fieldset>
-						<div className="">
-						<Link to="/Hospital"><input 
-
-								onClick={this.onSubmitSearch}
-								className="b br-pill ph3 pv2 input-reset ba b--black bg-transparent grow pointer f6 dib" type="submit" value="Search"/>
-                         </Link>
-						</div>
+			<div className="container">
+				<b className="page_title">Hospital Login</b>
+				<div className="form">
+				  <div className="form_input">
+						<label>
+							<span className="label">Hospital ID:<b style={{color: "red"}}>*</b></span> 
+							<input type="number" name="hid" id="hid" placeholder="XXXXXXXX" onChange={this.onHIDChange}/>
+						</label>
 					</div>
-				</main>
-			</article>
+					<div className="form_input">
+						<label>
+							<span className="label">Password:<b style={{color: "red"}}>*</b></span>
+							<input type="password" name="password" id="password" onChange={this.onPasswordChange}/>
+						</label>
+					</div>
+				</div>
+				<div className="submit_btn_div">
+					<Link to='/Hospital' onClick={this.onSubmitHLogin} >
+						<button type="submit">Login</button>
+					</Link>
+				</div>
+			</div>
 
 		);
 	}
