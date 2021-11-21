@@ -1,5 +1,5 @@
 import React from 'react';
-
+import {Link} from 'react-router-dom';
 class ALogin extends React.Component {
 	constructor(props){
 		super(props);
@@ -50,7 +50,7 @@ class ALogin extends React.Component {
 					</div>
 				</div>
 				<div className="submit_btn_div">
-					<button onClick={this.onSubmitALogin} type="submit">Login</button>
+					<Link to='/Admin'><button onClick={this.onSubmitALogin} type="submit">Login</button></Link>
 				</div>
 			</div>
 		);

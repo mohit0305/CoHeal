@@ -3,8 +3,11 @@ import HomePage from './Components/Homepage';
 import Login from './Components/Login';
 import HLogin from './Components/HLogin';
 import ALogin from './Components/ALogin';
-import Register from './Components/Register'
-import Hospital from './Components/Hospital'
+import Register from './Components/Register';
+import Hospital from './Components/Hospital';
+import Admin from './Components/Admin';
+import AddHospital from './Components/AddHospital';
+import RemoveHospital from './Components/RemoveHospital';
 import {BrowserRouter as Router,Routes,Route,Link} from "react-router-dom";
 import logo from './logo192.png';
 import './App.css';
@@ -102,6 +105,9 @@ class App extends React.Component {
                 <Route path="/HLogin" element = {<HLogin loadHospital={this.loadHospital} onRouteChange={this.onRouteChange}/>}></Route>
                 <Route path="/ALogin" element = {<ALogin loadAdmin={this.loadAdmin}/>}></Route>
                 <Route path="/Hospital" element = {<Hospital/>}></Route>
+                <Route path="/Admin" element = {<Admin/>}></Route>
+                <Route path="/AddHospital" element = {<AddHospital/>}></Route>
+                <Route path="/RemoveHospital" element = {<RemoveHospital/>}></Route>
               </Routes>
             </div>
 

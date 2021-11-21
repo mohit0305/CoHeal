@@ -1,5 +1,5 @@
 import React from 'react';
-
+import {Link} from 'react-router-dom'
 class SearchBox extends React.Component {
 	constructor(props){
 		super(props);
@@ -49,7 +49,7 @@ class SearchBox extends React.Component {
 					</div>
 				</div>
 				<div className="submit_btn_div">
-					<button className="sub-btn grow" id="sub-btn" onClick={this.onSubmitSearch}>Search</button>
+					  <button className="sub-btn grow" id="sub-btn" onClick={this.onSubmitSearch}>Search</button>
 				</div>
 			</div>
            
