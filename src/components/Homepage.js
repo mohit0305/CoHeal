@@ -1,34 +1,32 @@
 import React ,{Component} from 'react';
 import Banner from './Banner';
 import SearchBox from './SearchBox';
+import SearchList from './SearchList';
 
 
 class HomePage extends Component {
   constructor(){
     super()
     this.state ={
-      Searchfield : '',
-      Select : 'Vaccine'
+      listLength: 0,
+      list: []
     }
   }
- 
-    change=(event)=>{
-    this.setState({Searchfield:event.target.value});
-    }
-    selectchange=(event)=>{
-      this.setState({Select:event.target.value});
-      }
-    clear=(event)=>{
-      this.setState({Searchfield:""});
-      }
-      search=(event) =>{
-        console.log(this.state.Searchfield)
-      }
+
+  loadList= (list)=>{
+    this.setState({
+      listLength: list.length(),
+      list: list
+    })
+    console.log(this.state);
+  }
+
   render(){
     return (
           <div>
-            {/* <Banner/> */}
-            <SearchBox SearchChange={this.change} Select={this.selectchange} ClickSearch={this.search} ClearSearch={this.clear} SelectValue={this.state.Select} SearchValue = {this.state.Searchfield}/>
+            <Banner/>
+            <SearchBox loadList={this.loadList}/>
+            <SearchList listLength={this.state.listLength} list={this.state.list}/>
           </div>
     );
   }
