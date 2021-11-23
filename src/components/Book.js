@@ -17,16 +17,26 @@ class Book extends React.Component {
             { sno: 2, hospital: '', available : 10  },
             { sno: 3, hospital: '', available : 10  },
             { sno: 4, hospital: '', available : 10  }
-         ]
+         ],
+         hname:'',//hname - hospital name for vaccine booking
+         bhname:'',//bhname - hospital name for icu bed booking
+         vaccine:''
       }
    }
   
+   onHnameChange = (event) =>{this.setState({hname: event.target.value})}
+	onOptChange = (event) =>{this.setState({vaccine: event.target.value})}
+   onBHnameChange = (event) =>{this.setState({bhname: event.target.value})}
+
    renderSlotsHeader() {
 	let header = Object.keys(this.state.slots[0])
 	return header.map((key, index) => {
 	   return <th key={index} className = "pr3">{key.toUpperCase()}</th>
 	})
  }
+
+
+
 
  
  renderBedsHeader() {
@@ -45,7 +55,6 @@ class Book extends React.Component {
 			 <td className = "pr3">{hospital}</td>
 			 <td className = "pr3">{vaccine}</td>
 			 <td className = "pr3">{available}</td>
-             <td className = "pr3"><button>Book</button></td>
 		  </tr>
 	   )
 	})
@@ -60,7 +69,6 @@ class Book extends React.Component {
 			 <td className = "pr3">{sno}</td>
 			 <td className = "pr3">{hospital}</td>
 			 <td className = "pr3">{available}</td>
-             <td><button>Book</button></td>
 		  </tr>
 	   )
 	})
@@ -88,6 +96,45 @@ class Book extends React.Component {
                </tbody>
             </table>
 		 </div>
+       <div className="br2 container">
+				<b className="page_title">Provide Vaccine Slots Booking Details</b>
+				<div className="form">
+					<div className="form_input">
+						<label>
+							<span className="label">Enter Hospital Name(from above list) </span>
+							<input type="text" id="hname" name="hname" placeholder="from available Slots list" onChange={this.onHnameChange} />
+						</label>	
+					</div>
+					<div className="form_input">
+						<label>
+							<span className="label">Select Vaccine:</span>
+							<select id="opt" name="opt" defaultValue="" onChange={this.onOptChange}>
+								<option disabled value="" >--</option>
+								<option value="Vacc">Covishield</option>
+								<option value="ICU">Covaxin</option>
+							</select>
+						</label>
+					</div>
+				</div>
+				<div className="submit_btn_div">
+					  <button className="sub-btn grow" id="sub-btn" onClick={this.onSubmitSearch}>Book</button>
+				</div>
+			</div>
+         <div className="br2 container">
+				<b className="page_title">Provide ICU Beds Booking Details</b>
+				<div className="form">
+					<div className="form_input">
+						<label>
+							<span className="label">Enter Hospital Name(from above list) </span>
+							<input type="text" id="hname" name="hname" placeholder="from Available Beds list" onChange={this.onBHnameChange} />
+						</label>	
+					</div>
+				</div>
+				<div className="submit_btn_div">
+					  <button className="sub-btn grow" id="sub-btn" onClick={this.onSubmitSearch}>Book</button>
+				</div>
+			</div>
+         
 		 </div>
       )
    }

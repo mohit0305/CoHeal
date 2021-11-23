@@ -10,6 +10,7 @@ import AddHospital from './Components/AddHospital';
 import RemoveHospital from './Components/RemoveHospital';
 import Citizen from './Citizen';
 import Book from './Components/Book';
+import Reschedule from './Components/Reschedule';
 import {BrowserRouter as Router,Routes,Route,Link} from "react-router-dom";
 import logo from './logo192.png';
 import './App.css';
@@ -112,6 +113,7 @@ class App extends React.Component {
                 <Route path="/RemoveHospital" element = {<RemoveHospital/>}></Route>
                 <Route path="/Citizen" element = {<Citizen/>}></Route>
                 <Route path="/Book" element = {<Book/>}></Route>
+                <Route path="/Reschedule" element = {<Reschedule/>}></Route>
               </Routes>
             </div>
 
