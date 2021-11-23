@@ -8,6 +8,8 @@ import Hospital from './Components/Hospital';
 import Admin from './Components/Admin';
 import AddHospital from './Components/AddHospital';
 import RemoveHospital from './Components/RemoveHospital';
+import Citizen from './Citizen';
+import Book from './Components/Book';
 import {BrowserRouter as Router,Routes,Route,Link} from "react-router-dom";
 import logo from './logo192.png';
 import './App.css';
@@ -108,6 +110,8 @@ class App extends React.Component {
                 <Route path="/Admin" element = {<Admin/>}></Route>
                 <Route path="/AddHospital" element = {<AddHospital/>}></Route>
                 <Route path="/RemoveHospital" element = {<RemoveHospital/>}></Route>
+                <Route path="/Citizen" element = {<Citizen/>}></Route>
+                <Route path="/Book" element = {<Book/>}></Route>
               </Routes>
             </div>
 

@@ -52,7 +52,7 @@ class Login extends React.Component {
 						</div>
 					</div>
 					<div className="submit_btn_div">
-						<button onClick={this.onSubmitLogin} type="submit">Login</button>
+					   <Link to="/Citizen">	<button onClick={this.onSubmitLogin} type="submit">Login</button> </Link>
 					</div>
 					<div className="f5 pt2">
 						New User?<b> </b>
