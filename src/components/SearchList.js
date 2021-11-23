@@ -24,7 +24,7 @@ class SearchList extends React.Component {
    renderSlotsHeader() {
 	let header = Object.keys(this.state.slots[0])
 	return header.map((key, index) => {
-	   return <th key={index} className = "pr3">{key.toUpperCase()}</th>
+	   return <th key={index} >{key.toUpperCase()}</th>
 	})
  }
 
@@ -32,7 +32,7 @@ class SearchList extends React.Component {
  renderBedsHeader() {
 	let header = Object.keys(this.state.beds[0])
 	return header.map((key, index) => {
-	   return <th key={index} className = "pr3">{key.toUpperCase()}</th>
+	   return <th key={index} >{key.toUpperCase()}</th>
 	})
  }
 
@@ -41,10 +41,10 @@ class SearchList extends React.Component {
 	   const { sno, hospital, vaccine, available  } = slot //destructuring
 	   return (
 		  <tr key={sno}>
-			 <td className = "pr3">{sno}</td>
-			 <td className = "pr3">{hospital}</td>
-			 <td className = "pr3">{vaccine}</td>
-			 <td className = "pr3">{available}</td>
+			 <td>{sno}</td>
+			 <td>{hospital}</td>
+			 <td>{vaccine}</td>
+			 <td>{available}</td>
 		  </tr>
 	   )
 	})
@@ -56,9 +56,9 @@ class SearchList extends React.Component {
 	   const { sno, hospital, available  } = bed //destructuring
 	   return (
 		  <tr key={sno}>
-			 <td className = "pr3">{sno}</td>
-			 <td className = "pr3">{hospital}</td>
-			 <td className = "pr3">{available}</td>
+			 <td>{sno}</td>
+			 <td>{hospital}</td>
+			 <td>{available}</td>
 		  </tr>
 	   )
 	})
@@ -68,27 +68,28 @@ class SearchList extends React.Component {
    render() { //Whenever our class runs, render method will be called automatically, it may have already defined in the constructor behind the scene.
       return (
 		  <div>
-         <div className="br4 ba b--black-10 mv4 w-100 w-75-m w-75-l mw6 shadow-5 center">
-            <h1>Available Vaccine Slots</h1>
-			<table id='slots' className="center">
+         <div className="data_table">
+            <b className="data_table_title">Available Vaccine Slots</b>
+			   <table>
                <tbody>
                   <tr>{this.renderSlotsHeader()}</tr>
                   {this.renderSlotsData()}
                </tbody>
             </table>
          </div>
-		 <div className="br4 ba b--black-10 mv4 w-100 w-75-m w-75-l mw6 shadow-5 center">
-         <h1>Available ICU Beds</h1>
-			<table id='slots' className="center">
+         
+		   <div className="data_table">
+         <b className="data_table_title">Available ICU Beds</b>
+			   <table>
                <tbody>
                   <tr>{this.renderBedsHeader()}</tr>
                   {this.renderBedsData()}
                </tbody>
             </table>
-		 </div>
-		 </div>
+		   </div>
+		   </div>
       )
    }
 }
 
-export default SearchList; //exporting a component make it reusable and this is the beauty of rea
+export default SearchList; //exporting a component make it reusable and this is the beauty of react
