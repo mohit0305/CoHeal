@@ -5,6 +5,7 @@ class Login extends React.Component {
 	constructor(props){
 		super(props);
 		this.state ={
+			showlink:false,
 			uid: 0,
 			password: '',
 		}
@@ -13,7 +14,7 @@ class Login extends React.Component {
 	onPasswordChange = (event) =>{this.setState({password: event.target.value})}
 
 	onSubmitLogin = ()=>{
-		fetch('', {
+		fetch('http://localhost:3001/login', {
 			method: 'post',
 			headers: {'Content-Type': 'application/json'},
 			body: JSON.stringify({
@@ -28,6 +29,7 @@ class Login extends React.Component {
 			}
 			else{
 				this.props.loadCitizen(citizen);
+				this.setState({showlink:true})
 			}
 		})
 		console.log(this.state)
@@ -35,30 +37,43 @@ class Login extends React.Component {
 
 	render(){
 		return(
-			<div className="container">
-				<b className="page_title">Login </b>
-			        <div className="form">
-            <div className="form_input">
-							<label>
-								<span className="label">UID<b style={{color: "red"}}>*</b>:</span> 
-							    <input type="number" name="uid" id="uid" placeholder="XXXXXXXXXXXX" onChange={this.onUIDChange}/>
-							</label>
+			<div>
+				{
+					this.state.showlink?
+						<div>
+							<h2>Logged in Successfully</h2>
+							<Link to='/' className="f4 blue link dim grow">Go to Citizen Dashoard</Link>
 						</div>
-						<div className="form_input">
-							<label>
-								<span className="label">Password<b style={{color: "red"}}>*</b>:</span>
-							    <input type="password" name="password" id="password" onChange={this.onPasswordChange}/>
-							</label>
+					:
+						<div className="container">
+							<b className="page_title">Login </b>
+						        <div className="form">
+			            <div className="form_input">
+										<label>
+											<span className="label">UID<b style={{color: "red"}}>*</b>:</span> 
+										    <input type="number" name="uid" id="uid" placeholder="XXXXXXXXXXXX" onChange={this.onUIDChange}/>
+										</label>
+									</div>
+									<div className="form_input">
+										<label>
+											<span className="label">Password<b style={{color: "red"}}>*</b>:</span>
+										    <input type="password" name="password" id="password" onChange={this.onPasswordChange}/>
+										</label>
+									</div>
+								</div>
+								<div className="submit_btn_div">
+									<button onClick={this.onSubmitLogin} type="submit">Login</button>
+								</div>
+								<div className="f5 pt2">
+									New User?<b> </b>
+									<Link to="/Register" onClick={() => this.props.onRouteChange('/Register')}> <p className='link black dim underline dib pointer'>Register Here</p></Link>
+								</div>
 						</div>
-					</div>
-					<div className="submit_btn_div">
-						<button onClick={this.onSubmitLogin} type="submit">Login</button>
-					</div>
-					<div className="f5 pt2">
-						New User?<b> </b>
-						<Link to="/Register" onClick={() => this.props.onRouteChange('/Register')}> <p className='link black dim underline dib pointer'>Register Here</p></Link>
-					</div>
+				}
 			</div>
+
+
+			
 		);
 	}
 }
