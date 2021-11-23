@@ -51,11 +51,11 @@ class RemoveHospital extends React.Component {
 					<div className="form_input">
 						<label>
 							<span className="label">PinCode:<b style={{color: "red"}}>*</b></span>
-							<input type="password" name="password" id="XXXXX" onChange={this.onPinCodeChange}/>
+							<input type="number" name="pin" id="XXXXXX" onChange={this.onPinCodeChange}/>
 						</label>
 					</div>
 				</div>
-				<div className="submit_btn_div">
+				<div className="submit_btn_div danger">
 					<Link to='/Admin' onClick={this.onSubmitHLogin} >
 						<button type="submit">Remove Hospital</button>
 					</Link>
