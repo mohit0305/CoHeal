@@ -60,7 +60,7 @@ class AddHospital extends React.Component {
 					<div className="form_input">
 						<label>
 							<span className="label">Hospital Name:<b style={{color: "red"}}>*</b></span> 
-							<input type="number" name="hid" id="hid" placeholder="Name of Hospital" onChange={this.onHNameChange}/>
+							<input type="text" name="hid" id="hid" placeholder="Name of Hospital" onChange={this.onHNameChange}/>
 						</label>
 					</div>
 					<div className="form_input">
@@ -72,7 +72,7 @@ class AddHospital extends React.Component {
 					<div className="form_input">
 						<label>
 							<span className="label">Address:<b style={{color: "red"}}>*</b></span> 
-							<input type="number" name="hid" id="hid" placeholder="Address" onChange={this.onAddressChange}/>
+							<input type="text" name="hid" id="hid" placeholder="Address" onChange={this.onAddressChange}/>
 						</label>
 					</div>
 					
