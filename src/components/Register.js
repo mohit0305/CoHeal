@@ -59,7 +59,7 @@ class Register extends React.Component {
 					this.state.showlink?
 						<div>
 							<h2>Registered Successfully</h2>
-							<Link to='/' className="f4 blue link dim grow">Go to Citizen Dashoard</Link>
+							<Link to='/Citizen' className="f4 blue link dim grow">Go to Citizen Dashoard</Link>
 						</div>
 					:
 						<div className="container">
