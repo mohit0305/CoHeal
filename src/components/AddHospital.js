@@ -60,26 +60,26 @@ class AddHospital extends React.Component {
 					<div className="form_input">
 						<label>
 							<span className="label">Hospital Name:<b style={{color: "red"}}>*</b></span> 
-							<input type="text" name="hid" id="hid" placeholder="Name of Hospital" onChange={this.onHNameChange}/>
+							<input type="text" name="hname" id="hname" placeholder="Hospital Name" onChange={this.onHNameChange}/>
 						</label>
 					</div>
 					<div className="form_input">
 						<label>
 							<span className="label">PinCode:<b style={{color: "red"}}>*</b></span>
-							<input type="password" name="password" id="XXXXX" onChange={this.onPinCodeChange}/>
+							<input type="number" name="pin" id="pin" onChange={this.onPinCodeChange}/>
 						</label>
 					</div>
 					<div className="form_input">
 						<label>
 							<span className="label">Address:<b style={{color: "red"}}>*</b></span> 
-							<input type="text" name="hid" id="hid" placeholder="Address" onChange={this.onAddressChange}/>
+							<input type="text" name="haddress" id="haddress" placeholder="Address" onChange={this.onAddressChange}/>
 						</label>
 					</div>
 					
 					<div className="form_input">
 						<label>
 							<span className="label">Contact No. - :<b style={{color: "red"}}>*</b></span> 
-							<input type="number" name="hid" id="hid" placeholder="XXXXXXXXXX" onChange={this.onContactChange}/>
+							<input type="number" name="hcontact" id="hcontact" placeholder="XXXXX XXXXX" onChange={this.onContactChange}/>
 						</label>
 					</div>
 					
