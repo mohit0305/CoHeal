@@ -135,6 +135,42 @@ h1{
   font-weight: 200;
   color: #0ccac4;
 }
+
 .label{
   text-align: right;
+/* style for avilable vaccine and beds data */
+.data_table{
+  /* border: 2px solid green; */
+  height: fit-content;
+  width: 90%;
+  padding: 2%;
+  margin: auto;
+  margin-bottom: 3%;
+  /* background-color: white; */
+}
+.data_table_title{
+  font-size: 2em;
+  color: #d5cdd5;
+  margin: 2%;
+  display: block;
+}
+
+table{
+  border-collapse: collapse;
+  width: 100%;
+}
+th{
+  background: #22abeb;
+  color: white;
+}
+td, th{
+  border: 1px solid blue;
+  text-align: center;
+  padding: 10px;
+}
+tr:nth-child(even){
+  background-color: white;
+}
+tr:nth-child(odd){
+  background-color: antiquewhite;
 }

@@ -6,42 +6,45 @@ class AddHospital extends React.Component {
 		super(props);
 		this.state ={
 			hid: 0,
-			hname:'',
+			name:'',
 			address:'',
 			pin: 0,
-			contact:0
+			phno:0,
+			password:''
 		}
 	}
 	onHIDChange = (event) =>{this.setState({hid: event.target.value})}
-	onHNameChange = (event) =>{this.setState({hname: event.target.value})}
+	onNameChange = (event) =>{this.setState({name: event.target.value})}
 	onAddressChange = (event) =>{this.setState({address: event.target.value})}
 	onPinCodeChange = (event) =>{this.setState({pin: event.target.value})}
-	onContactChange = (event) =>{this.setState({contact: event.target.value})}
+	onContactChange = (event) =>{this.setState({phno: event.target.value})}
+	onPasswordChange = (event) =>{this.setState({password: event.target.value})}
 
     
-	onSubmitHLogin = (event)=>{
-		fetch('', {
+	onSubmitHRegister = (event)=>{
+		fetch('http://localhost:3001/hregister', {
 			method: 'post',
 			headers: {'Content-Type': 'application/json'},
 			body: JSON.stringify({
 				hid: this.state.hid,
-				pin: this.state.pin,
-				hname: this.state.hname,
+				pincode: this.state.pin,
+				name: this.state.name,
 				address: this.state.address,
-				contact: this.state.contact
+				phno: this.state.phno,
+				password: this.state.password
 			})
 		}).then(response => response.json())
 		.then(hospital => {
-			if(!(hospital.uid)){
+			if(!(hospital[0].hid)){
 				alert(hospital);
 				console.log(hospital);
-				event.preventDefault();
 			}
 			else{
-				this.props.loadHospital(hospital);
+				alert("Registered Successfully");
+				this.props.togglebtn('')
+				console.log(hospital);
 			}
 		})
-
 		console.log(this.state)
 	}
 
@@ -49,7 +52,7 @@ class AddHospital extends React.Component {
 		
 		return(
 			<div className="container">
-				<b className="page_title">Add Hospital</b>
+				<b className="page_title">Register Hospital</b>
 				<div className="form">
 				  <div className="form_input">
 						<label>
@@ -60,34 +63,39 @@ class AddHospital extends React.Component {
 					<div className="form_input">
 						<label>
 							<span className="label">Hospital Name:<b style={{color: "red"}}>*</b></span> 
-							<input type="text" name="hid" id="hid" placeholder="Name of Hospital" onChange={this.onHNameChange}/>
+
+							<input type="text" name="hname" id="hname" placeholder="Hospital Name" onChange={this.onHNameChange}/>
+
 						</label>
 					</div>
 					<div className="form_input">
 						<label>
+
 							<span className="label">PinCode:<b style={{color: "red"}}>*</b></span>
-							<input type="password" name="password" id="XXXXX" onChange={this.onPinCodeChange}/>
+							<input type="number" name="pin" id="pin" onChange={this.onPinCodeChange}/>
+
 						</label>
 					</div>
 					<div className="form_input">
 						<label>
+
 							<span className="label">Address:<b style={{color: "red"}}>*</b></span> 
-							<input type="text" name="hid" id="hid" placeholder="Address" onChange={this.onAddressChange}/>
+							<input type="text" name="haddress" id="haddress" placeholder="Address" onChange={this.onAddressChange}/>
+
 						</label>
 					</div>
-					
 					<div className="form_input">
 						<label>
 							<span className="label">Contact No. - :<b style={{color: "red"}}>*</b></span> 
-							<input type="number" name="hid" id="hid" placeholder="XXXXXXXXXX" onChange={this.onContactChange}/>
+
+							<input type="number" name="hcontact" id="hcontact" placeholder="XXXXX XXXXX" onChange={this.onContactChange}/>
+
 						</label>
 					</div>
-					
 				</div>
 				<div className="submit_btn_div">
-					<Link to='/Admin' onClick={this.onSubmitHLogin} >
-						<button type="submit">Add Hospital</button>
-					</Link>
+					<button type="submit" className="bt mr5" onClick={this.onSubmitHRegister}>Add Hospital</button>
+					<button type="submit" className="bt ml5" onClick={this.props.togglebtn}>Cancel</button>
 				</div>
 			</div>
 

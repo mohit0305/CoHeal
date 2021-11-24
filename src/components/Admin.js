@@ -1,24 +1,53 @@
 import React from 'react';
 import {Link} from 'react-router-dom';
+import AddHospital from './AddHospital';
+import RemoveHospital from './RemoveHospital';
 import '../App.css';
-class Hospital extends React.Component {
+class Admin extends React.Component {
 	constructor(props){
 		super(props);
 		this.state ={
-			hname: '',
+			aid: props.admin.aid,
+			toggle: ''
 		}
+	}
+
+	togglebtn=(value)=>{
+		this.setState({toggle: value})
 	}
 	
 	render(){
-		
-		return(
-        <div className="container">
-            <h1 className='page_title center'> Admin Dashboard</h1>
-            <h2> Add or Delete Hospitals By Clicking The buttons Below </h2>
-            <Link to='/AddHospital'><button className="submit_btn_div">Add Hospital</button></Link>
-            <Link to='/RemoveHospital'><button className="submit_btn_div">Remove Hospital</button></Link>
-            </div>
-		);
+		if(this.props.admin.islogged === false){
+			return(
+				<div>
+					<div className="f4 pt4 pb3">Admin not Logged In</div>
+					<Link className="f5 black link dim underline" to='/Alogin'>Login here</Link>
+				</div>
+			)
+		}
+		else{
+			return(
+				<div>
+					<div className="container">
+						<h1 className='page_title center'> Admin {this.state.aid} Dashboard</h1>
+						<h2> Register or Remove Hospitals</h2>
+						<button className="submit_btn_div mr3" onClick={() => this.togglebtn('add')}>Register Hospital</button>
+						<button className="submit_btn_div ml3" onClick={() => this.togglebtn('rem')}>Remove Hospital</button>
+					</div>
+
+					{
+						this.state.toggle === 'add'?  <AddHospital togglebtn={this.togglebtn}/>
+						:
+							this.state.toggle === 'rem'? <RemoveHospital togglebtn={this.togglebtn}/>
+							:
+								<br/>
+
+					}
+
+
+				</div>
+			);
+		}
 	}
 }
-export default Hospital;
+export default Admin;
