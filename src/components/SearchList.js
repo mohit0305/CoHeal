@@ -5,18 +5,6 @@ class SearchList extends React.Component {
    constructor(props) {
       super(props) //since we are extending class Table so we have to use super in order to override Component class constructor
       this.state = { //state is by default an object
-         slots: [
-            { sno: 1, hospital: '', vaccine: '', available : 10 },
-            { sno: 2, hospital: '', vaccine: '', available : 10  },
-            { sno: 3, hospital: '', vaccine: '', available : 10  },
-            { sno: 4, hospital: '', vaccine: '', available : 10  }
-         ],
-		 beds: [
-            { sno: 1, hospital: '', available : 10 },
-            { sno: 2, hospital: '', available : 10  },
-            { sno: 3, hospital: '', available : 10  },
-            { sno: 4, hospital: '', available : 10  }
-         ],
          list: this.props.list,
          listLength: this.props.listLength,
          opt: this.props.opt

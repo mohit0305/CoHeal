@@ -1,7 +1,7 @@
 import React ,{Component} from 'react';
 import Banner from './Banner';
 import SearchBox from './SearchBox';
-import SearchList from './SearchList';
+//import SearchList from './SearchList';
 
 
 class HomePage extends Component {
@@ -66,12 +66,12 @@ class HomePage extends Component {
             <div>
             {
               this.state.opt!=='Vacc'&& this.state.opt!=='ICU'? <div>{this.state.opt}</div>
-              : this.state.list.length == 0 || this.state.listLength==0?
+              : this.state.list.length === 0 || this.state.listLength===0?
                 <div className="br3 bg-gray black container">
                   <div className="f4 mt3 mb2">No Nearby Hospitals Found</div>
                   <div className="f5 mb3">Try different pincode</div>
                 </div>
-              : this.state.opt == 'Vacc'?
+              : this.state.opt === 'Vacc'?
                 <div>
                   <div className="br4 ba b--black-10 mv4 w-100 w-100-m w-100-l mw7 shadow-5 center">
                     <h1>Available Vaccine Slots</h1>
@@ -88,7 +88,7 @@ class HomePage extends Component {
                     </table>
                   </div>
                 </div>
-              : this.state.opt == 'ICU'?
+              : this.state.opt === 'ICU'?
                 <div>
                   <div className="br4 ba b--black-10 mv4 w-100 w-100-m w-100-l mw7 shadow-5 center">
                     <h1>Available ICU Beds</h1>
