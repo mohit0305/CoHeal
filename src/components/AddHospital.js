@@ -63,31 +63,33 @@ class AddHospital extends React.Component {
 					<div className="form_input">
 						<label>
 							<span className="label">Hospital Name:<b style={{color: "red"}}>*</b></span> 
-							<input type="text" name="name" id="name" onChange={this.onNameChange}/>
+
+							<input type="text" name="hname" id="hname" placeholder="Hospital Name" onChange={this.onHNameChange}/>
+
 						</label>
 					</div>
 					<div className="form_input">
 						<label>
-							<span className="label">Address:<b style={{color: "red"}}>*</b></span> 
-							<textarea style={{ resize: 'none' }} id="address" name="address" onChange={this.onAddressChange}></textarea>
-						</label>
-					</div>
-					<div className="form_input">
-						<label>
+
 							<span className="label">PinCode:<b style={{color: "red"}}>*</b></span>
-							<input type="pin" name="pin" id="XXXXXX" onChange={this.onPinCodeChange}/>
+							<input type="number" name="pin" id="pin" onChange={this.onPinCodeChange}/>
+
+						</label>
+					</div>
+					<div className="form_input">
+						<label>
+
+							<span className="label">Address:<b style={{color: "red"}}>*</b></span> 
+							<input type="text" name="haddress" id="haddress" placeholder="Address" onChange={this.onAddressChange}/>
+
 						</label>
 					</div>
 					<div className="form_input">
 						<label>
 							<span className="label">Contact No. - :<b style={{color: "red"}}>*</b></span> 
-							<input type="number" name="phno" id="phno" onChange={this.onContactChange}/>
-						</label>
-					</div>
-					<div className="form_input">
-						<label>
-							<span className="label"> Password:<b style={{color: "red"}}>*</b></span>
-							<input type="password" name="password" id="password" onChange={this.onPasswordChange} />
+
+							<input type="number" name="hcontact" id="hcontact" placeholder="XXXXX XXXXX" onChange={this.onContactChange}/>
+
 						</label>
 					</div>
 				</div>
