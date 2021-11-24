@@ -115,11 +115,29 @@ input[type=number]::-webkit-outer-spin-button {
   background-color: darkblue;
   color: white;
 }
+.danger button{
+  border: 2px solid red;
+  background-color: red;
+}
+.danger button:hover{
+  border-color: darkred;
+  background-color: darkred;
+}
+.description{
+  text-align: center;
+  display: block;
+}
+.marg-2{
+  margin: 2%;
+}
 h1{
   font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
   font-weight: 200;
   color: #0ccac4;
 }
+
+.label{
+  text-align: right;
 /* style for avilable vaccine and beds data */
 .data_table{
   /* border: 2px solid green; */
