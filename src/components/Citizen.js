@@ -1,5 +1,5 @@
 import React from 'react';
-import {BrowserRouter as Router,Routes,Route,Link} from "react-router-dom";
+import {Link} from "react-router-dom";
 import SearchBox from './SearchBox.js'
 import GetSlip from './GetSlip.js'
 
@@ -277,12 +277,12 @@ class Citizen extends React.Component {
         <div>
             {
               this.state.opt!=='Vacc'&& this.state.opt!=='ICU'? <div>{this.state.opt}</div>
-              : this.state.list.length == 0 || this.state.listLength==0?
+              : this.state.list.length === 0 || this.state.listLength===0?
                 <div className="br3 bg-gray black container">
                   <div className="f4 mt3 mb2">No Nearby Hospitals Found</div>
                   <div className="f5 mb3">Try different pincode</div>
                 </div>
-              : this.state.opt == 'Vacc'?
+              : this.state.opt === 'Vacc'?
                 <div>
                   <div className="br4 ba b--black-10 mv4 w-100 w-100-m w-100-l mw7 shadow-5 center">
                     <h1>Book Vaccine Slot</h1>
@@ -302,7 +302,7 @@ class Citizen extends React.Component {
                       className="b mt2 mb3 br-pill ph3 pv2 input-reset ba b--black bg-transparent grow pointer f6 dib" type="submit" value="Book"/>
                   </div>
                 </div>
-              : this.state.opt == 'ICU'?
+              : this.state.opt === 'ICU'?
                 <div>
                   <div className="br4 ba b--black-10 mv4 w-100 w-100-m w-100-l mw7 shadow-5 center">
                     <h1>Book ICU Bed</h1>
