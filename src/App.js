@@ -6,11 +6,9 @@ import ALogin from './Components/ALogin';
 import Register from './Components/Register';
 import Hospital from './Components/Hospital';
 import Admin from './Components/Admin';
+import Citizen from './Components/Citizen';
 import AddHospital from './Components/AddHospital';
 import RemoveHospital from './Components/RemoveHospital';
-import Citizen from './Citizen';
-import Book from './Components/Book';
-import Reschedule from './Components/Reschedule';
 import {BrowserRouter as Router,Routes,Route,Link} from "react-router-dom";
 import logo from './logo192.png';
 import './App.css';
@@ -73,6 +71,30 @@ class App extends React.Component {
     }})
   }
 
+  logout = () =>{
+    this.setState({
+      currentRoute: '/',
+      admin: {
+        islogged: false,
+        aid:''
+      },
+      hospital: {
+        islogged: false,
+        hid:'',
+        name:'',
+        address:'',
+        pincode:''
+      },
+      citizen: {
+        islogged: false,
+        uid:'',
+        name:'',
+        age:'',
+        gender:'',
+      }
+    })
+  }
+
   render(){
     return(
       <div>
@@ -80,8 +102,10 @@ class App extends React.Component {
           <div>
             <nav className='navbar'>
               <Link to="/" onClick={() => this.onRouteChange('/')}><img className='navbar_content' style={{ height: 50, width: 50 }} alt='logo 'src={logo}/> </Link>
-              {/* <div className='navbar'> */}
-                {
+              { this.state.admin.islogged || this.state.citizen.islogged || this.state.hospital.islogged ?
+                  <Link to="/" onClick={() => this.logout()}> <div className='navbar_content text'>Log Out</div></Link>
+                :
+                
                   this.state.currentRoute !== '/'? <Link to="/" onClick={() => this.onRouteChange('/')}> <div className='navbar_content text'>Home</div></Link>
                   : <span/>
                 }{
@@ -97,7 +121,7 @@ class App extends React.Component {
                   this.state.currentRoute !== '/ALogin'? <Link to="/ALogin" onClick={() => this.onRouteChange('/ALogin')}> <div className='navbar_content text'>Admin Login</div></Link>
                   : <span/>
                 }
-              {/* </div> */}
+              
               
             </nav>
             <div>
@@ -108,12 +132,8 @@ class App extends React.Component {
                 <Route path="/HLogin" element = {<HLogin loadHospital={this.loadHospital} onRouteChange={this.onRouteChange}/>}></Route>
                 <Route path="/ALogin" element = {<ALogin loadAdmin={this.loadAdmin}/>}></Route>
                 <Route path="/Hospital" element = {<Hospital/>}></Route>
-                <Route path="/Admin" element = {<Admin/>}></Route>
-                <Route path="/AddHospital" element = {<AddHospital/>}></Route>
-                <Route path="/RemoveHospital" element = {<RemoveHospital/>}></Route>
-                <Route path="/Citizen" element = {<Citizen/>}></Route>
-                <Route path="/Book" element = {<Book/>}></Route>
-                <Route path="/Reschedule" element = {<Reschedule/>}></Route>
+                <Route path="/Admin" element = {<Admin admin={this.state.admin}/>}></Route>
+                <Route path="/Citizen" element = {<Citizen citizen={this.state.citizen}/>}></Route>
               </Routes>
             </div>
 

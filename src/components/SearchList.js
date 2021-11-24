@@ -1,6 +1,5 @@
 import React from 'react';
-
-
+import {useEffect, useState} from 'react'
 
 class SearchList extends React.Component {
    constructor(props) {
@@ -17,57 +16,97 @@ class SearchList extends React.Component {
             { sno: 2, hospital: '', available : 10  },
             { sno: 3, hospital: '', available : 10  },
             { sno: 4, hospital: '', available : 10  }
-         ]
+         ],
+         list: this.props.list,
+         listLength: this.props.listLength,
+         opt: this.props.opt
       }
+     console.log(this.state)
    }
   
-   renderSlotsHeader() {
-	let header = Object.keys(this.state.slots[0])
-	return header.map((key, index) => {
-	   return <th key={index} className = "pr3">{key.toUpperCase()}</th>
-	})
- }
 
- 
- renderBedsHeader() {
-	let header = Object.keys(this.state.beds[0])
-	return header.map((key, index) => {
-	   return <th key={index} className = "pr3">{key.toUpperCase()}</th>
-	})
- }
-
-   renderSlotsData() {
-	return this.state.slots.map((slot, index) => {
-	   const { sno, hospital, vaccine, available  } = slot //destructuring
-	   return (
-		  <tr key={sno}>
-			 <td className = "pr3">{sno}</td>
-			 <td className = "pr3">{hospital}</td>
-			 <td className = "pr3">{vaccine}</td>
-			 <td className = "pr3">{available}</td>
-		  </tr>
-	   )
-	})
- }
+	renderVListData(){
+		return this.state.list.map((slot, index) => {
+			const {name, date, ava  } = slot //destructuring
+			return (
+				<tr key={date}>
+					<td className = "pr3">{date}</td>
+					<td className = "pr3">{name}</td>
+					<td className = "pr3">{ava}</td>
+				</tr>
+			)
+		})
+	}
+	renderIListData(){
+		return this.state.list.map((slot, index) => {
+			const {name, ava  } = slot //destructuring
+			return (
+				<tr key={name}>
+					<td className = "pr3">{name}</td>
+					<td className = "pr3">{ava}</td>
+				</tr>
+			)
+		})
+	}
 
 
- renderBedsData() {
-	return this.state.beds.map((bed, index) => {
-	   const { sno, hospital, available  } = bed //destructuring
-	   return (
-		  <tr key={sno}>
-			 <td className = "pr3">{sno}</td>
-			 <td className = "pr3">{hospital}</td>
-			 <td className = "pr3">{available}</td>
-		  </tr>
-	   )
-	})
- }
+	render() { //Whenever our class runs, render method will be called automatically, it may have already defined in the constructor behind the scene.
+		return(
+			<div>
+			{
+				this.state.list.length == 0 || this.state.listLength==0?
+					<div className="br3 bg-gray black container">
+						<div className="f4 mt3 mb2">No Nearby Hospitals Found</div>
+						<div className="f5 mb3">Try different pincode</div>
+					</div>
+				: this.state.opt == 'Vacc'?
+					<div>
+						<div className="br4 ba b--black-10 mv4 w-100 w-100-m w-100-l mw7 shadow-5 center">
+							<h1>Available Vaccine Slots</h1>
+							<table id='slots' className="center">
+								<tbody>
+									<tr>
+										<th className = "pr3">Date</th>
+										<th className = "pr3">Hospital</th>
+										<th className = "pr3">Available</th>
+									</tr>
+									{/*<tr>{this.renderListHeader()}</tr>*/}
+									{this.renderVListData()}
+								</tbody>
+							</table>
+						</div>
+					</div>
+				: this.state.opt == 'ICU'?
+					<div>
+						<div className="br4 ba b--black-10 mv4 w-100 w-100-m w-100-l mw7 shadow-5 center">
+							<h1>Available ICU Beds</h1>
+							<table id='slots' className="center">
+								<tbody>
+									<tr>
+										<th className = "pr3">Hospital</th>
+										<th className = "pr3">Available</th>
+									</tr>
+									{/*<tr>{this.renderListHeader()}</tr>*/}
+									{this.renderIListData()}
+								</tbody>
+							</table>
+						</div>
+					</div>
+				: <br/>
+			}
+			</div>
 
-  
-   render() { //Whenever our class runs, render method will be called automatically, it may have already defined in the constructor behind the scene.
-      return (
-		  <div>
+
+
+
+
+
+		)
+	}
+
+
+
+		  /*<div>
          <div className="br4 ba b--black-10 mv4 w-100 w-75-m w-75-l mw6 shadow-5 center">
             <h1>Available Vaccine Slots</h1>
 			<table id='slots' className="center">
@@ -76,6 +115,25 @@ class SearchList extends React.Component {
                   {this.renderSlotsData()}
                </tbody>
             </table>
+         </div>
+         <div>
+         {
+         		this.state.listLength !==0? 
+         		
+         		<div className="br4 ba b--black-10 mv4 w-100 w-75-m w-75-l mw6 shadow-5 center">
+            <h1>Available Vaccine Slots</h1>
+			<table id='slots' className="center">
+               <tbody>
+                  <tr>{this.renderListHeader()}</tr>
+                  {this.renderListData()}
+               </tbody>
+            </table>
+         </div>
+
+         		:
+         		<br/>
+         }
+         
          </div>
 		 <div className="br4 ba b--black-10 mv4 w-100 w-75-m w-75-l mw6 shadow-5 center">
          <h1>Available ICU Beds</h1>
@@ -86,9 +144,7 @@ class SearchList extends React.Component {
                </tbody>
             </table>
 		 </div>
-		 </div>
-      )
-   }
+		 </div>*/
 }
 
 export default SearchList; //exporting a component make it reusable and this is the beauty of rea

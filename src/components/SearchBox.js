@@ -13,7 +13,7 @@ class SearchBox extends React.Component {
 
 
 	onSubmitSearch = ()=>{
-		fetch('', {
+		fetch('http://localhost:3001/searchava', {
 			method: 'post',
 			headers: {'Content-Type': 'application/json'},
 			body: JSON.stringify({
@@ -22,7 +22,15 @@ class SearchBox extends React.Component {
 			})
 		}).then(response => response.json())
 		.then(list => {
-				this.props.loadList(list);
+			if(!(list[0].hid)){
+				if(list == "Not Available") this.props.loadList([],this.state.opt);
+				else {alert(list);
+				console.log(list);
+				this.props.loadList([],'')}
+			}
+			else{
+				this.props.loadList(list,this.state.opt);
+			}
 		})
 		console.log(this.state)
 	}
