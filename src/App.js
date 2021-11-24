@@ -7,6 +7,7 @@ import Register from './Components/Register';
 import Hospital from './Components/Hospital';
 import Admin from './Components/Admin';
 import Citizen from './Components/Citizen';
+import GetSlip from './Components/GetSlip'
 import AddHospital from './Components/AddHospital';
 import RemoveHospital from './Components/RemoveHospital';
 import {BrowserRouter as Router,Routes,Route,Link} from "react-router-dom";
@@ -35,6 +36,7 @@ class App extends React.Component {
         name:'',
         age:'',
         gender:'',
+        address:''
       }
     }
     console.log(this.state)
@@ -57,12 +59,13 @@ class App extends React.Component {
       uid: citizen.uid,
       name: citizen.name,
       age: citizen.age,
-      gender: citizen.gender
+      gender: citizen.gender,
+      address: citizen.address
     }})
   }
 
   loadHospital= (hospital) =>{
-    this.setState({citizen:{
+    this.setState({hospital:{
       islogged: true,
       hid: hospital.hid,
       name: hospital.name,
@@ -131,7 +134,7 @@ class App extends React.Component {
                 <Route path="/Register" element = {<Register loadCitizen={this.loadCitizen} onRouteChange={this.onRouteChange}/>}></Route>
                 <Route path="/HLogin" element = {<HLogin loadHospital={this.loadHospital} onRouteChange={this.onRouteChange}/>}></Route>
                 <Route path="/ALogin" element = {<ALogin loadAdmin={this.loadAdmin}/>}></Route>
-                <Route path="/Hospital" element = {<Hospital/>}></Route>
+                <Route path="/Hospital" element = {<Hospital hospital={this.state.hospital}/>}></Route>
                 <Route path="/Admin" element = {<Admin admin={this.state.admin}/>}></Route>
                 <Route path="/Citizen" element = {<Citizen citizen={this.state.citizen}/>}></Route>
               </Routes>

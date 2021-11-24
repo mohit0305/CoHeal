@@ -1,5 +1,5 @@
 import React from 'react';
-import {Link} from 'react-router-dom'
+
 class SearchBox extends React.Component {
 	constructor(props){
 		super(props);
@@ -23,7 +23,7 @@ class SearchBox extends React.Component {
 		}).then(response => response.json())
 		.then(list => {
 			if(!(list[0].hid)){
-				if(list == "Not Available") this.props.loadList([],this.state.opt);
+				if(list === "Not Available") this.props.loadList([],this.state.opt);
 				else {alert(list);
 				console.log(list);
 				this.props.loadList([],'')}
